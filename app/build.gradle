@@ -1,1 +1,12 @@
 apply from: "$rootDir/module.gradle"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile project(':common')
+    compile project(':share')
+    compile project(':share-impl')
+    compile project(':video')
+    //可以试着注释掉下面的实现模块
+    compile project(':video-impl')
+}

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.onzhou.design.common.AbsBaseActivity;
+import com.onzhou.design.utils.ToastUtils;
 import com.onzhou.design.video.IVideoPlay;
 import com.onzhou.design.video.LiveCore;
 import com.onzhou.design.video.VideoPlayCallback;
@@ -60,10 +61,16 @@ public class VideoPlayActivity extends AbsBaseActivity implements VideoPlayCallb
         mVideoPlay.setVideoPlayCallback(this);
         //绑定显示控件
         View videoView = mVideoPlay.bindVideoView();
-        mRootLayer.addView(videoView, 0);
+        if (videoView != null) {
+            mRootLayer.addView(videoView, 0);
 
-        String videoPath = "http://player.alicdn.com/video/aliyunmedia.mp4";
-        mVideoPlay.setRemoteSource(videoPath);
+            String videoPath = "http://player.alicdn.com/video/aliyunmedia.mp4";
+            mVideoPlay.setRemoteSource(videoPath);
+            //提示
+            ToastUtils.showShort("正在加载...");
+        } else {
+            ToastUtils.showShort("插件加载失败!");
+        }
     }
 
     @Override

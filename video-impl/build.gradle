@@ -3,5 +3,5 @@ apply from: "$rootDir/module.gradle"
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile project(':videoplay')
+    compile project(':video')
 }

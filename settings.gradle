@@ -1,1 +1,1 @@
-include ':app', ':videoplay', ':videoimpl', ':share', ':shareimpl', ':common'
+include ':app', ':video', ':video-impl', ':share', ':share-impl', ':common'
