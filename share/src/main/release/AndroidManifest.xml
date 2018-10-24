@@ -1,2 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.onzhou.design.share" />
+    package="com.onzhou.design.share">
+
+    <application>
+        <activity android:name=".ShareActivity" />
+    </application>
+</manifest>

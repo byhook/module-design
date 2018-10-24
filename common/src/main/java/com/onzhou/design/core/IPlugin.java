@@ -12,6 +12,11 @@ import java.util.Map;
 public interface IPlugin {
 
     /**
+     * 待扫描的插件包目录
+     */
+    String PLUGIN_PACKAGE = "com.onzhou.design.plugin";
+
+    /**
      * 初始化插件
      *
      * @param applicationContext

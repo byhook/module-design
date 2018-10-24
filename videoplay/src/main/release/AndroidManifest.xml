@@ -1,2 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.onzhou.design.videoplay" />
+    package="com.onzhou.design.videoplay">
+
+    <application>
+        <activity
+            android:name=".VideoPlayActivity"
+            android:theme="@style/AppFullScreenTheme" />
+    </application>
+</manifest>

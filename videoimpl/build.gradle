@@ -3,5 +3,5 @@ apply from: "$rootDir/module.gradle"
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    testCompile 'junit:junit:4.12'
+    compile project(':videoplay')
 }

@@ -13,6 +13,8 @@ public class LiveCore {
 
     private Application application;
 
+    private boolean enableDebug;
+
     /**
      * 获取单例
      *
@@ -29,13 +31,34 @@ public class LiveCore {
         return sInstance;
     }
 
+    public Application getContext() {
+        return application;
+    }
+
+    public boolean isEnableDebug() {
+        return enableDebug;
+    }
+
     /**
      * 初始化操作
      *
      * @param application
      */
     public void init(Application application) {
+        //扫描插件映射缓存起来
+        init(application, false);
+    }
+
+    /**
+     * 初始化操作
+     *
+     * @param application
+     */
+    public void init(Application application, boolean enableDebug) {
+        //扫描插件映射缓存起来
+        PluginManager.initPlugins(application, IPlugin.PLUGIN_PACKAGE);
         this.application = application;
+        this.enableDebug = enableDebug;
     }
 
     /**

@@ -33,4 +33,7 @@ dependencies {
     compile rootProject.ext.dependencies["junit"]
     compile rootProject.ext.dependencies["runner"]
     compile rootProject.ext.dependencies["espresso"]
+
+    //适配库https://github.com/byhook/dimens-maker
+    compile rootProject.ext.dependencies["dimens"]
 }
