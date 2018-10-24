@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".VideoPlayActivity"
+            android:name="com.onzhou.design.ui.VideoPlayActivity"
             android:theme="@style/AppFullScreenTheme" />
     </application>
 </manifest>

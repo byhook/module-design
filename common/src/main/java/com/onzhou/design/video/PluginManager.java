@@ -1,4 +1,4 @@
-package com.onzhou.design.core;
+package com.onzhou.design.video;
 
 import android.content.Context;
 import android.content.pm.PackageManager;

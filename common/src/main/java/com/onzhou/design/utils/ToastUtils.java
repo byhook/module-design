@@ -1,10 +1,9 @@
 package com.onzhou.design.utils;
 
 import android.content.Context;
-import android.support.annotation.IntegerRes;
 import android.widget.Toast;
 
-import com.onzhou.design.core.LiveCore;
+import com.onzhou.design.video.LiveCore;
 
 /**
  * 作者: andy

@@ -2,7 +2,7 @@ package com.onzhou.design.main;
 
 import android.app.Application;
 
-import com.onzhou.design.core.LiveCore;
+import com.onzhou.design.video.LiveCore;
 
 /**
  * @anchor: andy
