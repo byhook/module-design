@@ -1,22 +1,4 @@
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
-    defaultConfig {
-        applicationId "com.onzhou.study"
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply from: "$rootDir/module.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

@@ -1,7 +1,7 @@
 ext {
     android = [
             compileSdkVersion: 27,
-            applicationId    : "com.onzhou.study",
+            applicationId    : "com.onzhou.design",
             minSdkVersion    : 15,
             targetSdkVersion : 27,
             versionCode      : 1,

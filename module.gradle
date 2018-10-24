@@ -1,0 +1,90 @@
+if (isLibrary.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+android {
+    //构建版本
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    //默认的配置
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        multiDexEnabled true
+
+        if (!isLibrary.toBoolean()) {
+            applicationId rootProject.ext.android.applicationId
+        }
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            //signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            //signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            //清单配置
+            if (isLibrary.toBoolean()) {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            }
+            //库地址
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+
+repositories {
+    jcenter()
+    maven {
+        name 'glide-snapshot'
+        url 'http://oss.sonatype.org/content/repositories/snapshots'
+    }
+    flatDir {
+        dirs 'libs', "$rootDir/lib-faceverify/libs", "$rootDir/lib-video-play/libs", "$rootDir/lib-video-publish/libs", "$rootDir/lib-p2p/libs"
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile rootProject.ext.dependencies["appcompat-v7"]
+
+    //阿里路由组件
+    compile 'com.alibaba:arouter-api:1.2.4'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+}
