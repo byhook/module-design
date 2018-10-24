@@ -7,6 +7,7 @@ if (isLibrary.toBoolean()) {
 android {
     //构建版本
     compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     //默认的配置
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
@@ -81,10 +82,6 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile rootProject.ext.dependencies["appcompat-v7"]
 
-    //阿里路由组件
-    compile 'com.alibaba:arouter-api:1.2.4'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    compile project(':common')
 }

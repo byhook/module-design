@@ -1,0 +1,18 @@
+package com.onzhou.design.main;
+
+import android.app.Application;
+
+/**
+ * @anchor: andy
+ * @date: 2018-10-24
+ * @description:
+ */
+public class MainApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //注意多进程的情况
+
+    }
+}

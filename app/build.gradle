@@ -1,14 +1,1 @@
 apply from: "$rootDir/module.gradle"
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["appcompat-v7"]
-    implementation rootProject.ext.dependencies["design"]
-    implementation rootProject.ext.dependencies["rxjava"]
-    implementation rootProject.ext.dependencies["rxandroid"]
-
-    implementation rootProject.ext.dependencies["junit"]
-
-    implementation rootProject.ext.dependencies["runner"]
-    implementation rootProject.ext.dependencies["espresso"]
-}
