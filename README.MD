@@ -9,7 +9,7 @@
 ### 组件化
 最近几天在整理项目中的要点，组件化相信大家都不陌生，还是复用以前的一张项目架构图，可以看到，项目的架构目前看起来比较清晰了，在最下层沉淀的是我们的公共库，比如`网络库`，`图片库`，`工具类`，`......`等等
 
-![](https://img-blog.csdn.net/20181024225139455?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5aG9vaw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](https://github.com/byhook/module-design/blob/master/images/000.png)
 
 上层的业务，比如`短视频模块`，`分享模块`，`直播间模块`等等，彼此直接并不会相互依赖，但是今天想说的是`解耦`的问题
 
@@ -24,7 +24,7 @@
 
 笔者这里简化了项目模型，但是基本原理是一致的。
 
-![](https://img-blog.csdn.net/20181024225606504?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5aG9vaw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](https://github.com/byhook/module-design/blob/master/images/111.png)
 
 在我们自己的`video组件`中抽象我们的播放器的一个`IVideoPlay`的接口
 ```java
@@ -98,7 +98,7 @@ public interface IVideoPlay extends ILifeCycle {
 ```
 然后在依赖它的上层组件`video-impl`中实现该该接口，如`MediaVideoPlayImpl`，笔者这里为了简化，直接使用系统类来实现的，看下图比较直观：
 
-![](https://img-blog.csdn.net/20181024225527382?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J5aG9vaw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](https://github.com/byhook/module-design/blob/master/images/222.png)
 
 但是有个新问题，那就是我们的`video组件`内部`VideoPlayActivity`都是在下层，如何拿到上层的`MediaVideoPlayImpl`的实现类，实例化，然后播放视频呢？如果直接在下层通过`new`操作符，必然会产生`强依赖`，`上层播放器实现类依赖下层接口`，而`下层业务又需要上层的实现类`，这种循环依赖的尴尬局面。
 
